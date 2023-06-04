@@ -9,12 +9,24 @@ import { PokemonService } from './services/pokemon.service';
 export class AppComponent implements OnInit{
   title = 'poke-api-angular';
   pokemons: any = [] 
+  pokemonsFilter: any =[]
   pokemonsDetail: any = []
+  showDetailPokemon: boolean = false
+  selectedPokemon: any ={}
 
   constructor(private pokemonService: PokemonService){}
 
   ngOnInit(): void {
       this.getPokemons()
+  }
+
+  pokeFilter(){
+
+  }
+
+  mostrarDetalhes(pokemon:any){
+    this.selectedPokemon = pokemon
+    this.showDetailPokemon = !this.showDetailPokemon
   }
 
   getPokemons(){
@@ -30,5 +42,9 @@ export class AppComponent implements OnInit{
         this.pokemonsDetail.push(pokemon)
       })
     })
+  }
+  onClose(){
+    this.showDetailPokemon = !this.showDetailPokemon
+    this.selectedPokemon = {}
   }
 }

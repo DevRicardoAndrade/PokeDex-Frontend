@@ -1,0 +1,16 @@
+<div class="modal-bg"></div>
+
+    <div class="modal-content">
+        <div class="actions">
+            <span class="close" (click)="onClose.emit()">
+                X
+            </span>
+        </div>
+        <div class="content">
+            <img [src]="pokemon.sprites.other.dream_world.front_default">
+            <h2>{{pokemon.name}}</h2>
+            <label>Tipos: <span *ngFor="let type of pokemon.types" > | {{type.type.name}} | </span></label>
+            <label>Habilidades: <span *ngFor="let ability of pokemon.abilities" > | {{ability.ability.name}} | </span></label>
+        </div>
+
+    </div>
