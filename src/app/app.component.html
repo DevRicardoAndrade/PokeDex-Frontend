@@ -2,9 +2,9 @@
 
 <div class="header">
     <span class="quantidade">
-       Quantidade de pokemons listados: {{pokemons.count}}
+       Quantidade de pokemons listados: {{pokemonsDetail.length}}
     </span>
-    <input class="pesquisar" type="text" placeholder="Pesquisar um pokemon..." (input)="pokeFilter()"/>
+    <input class="pesquisar" type="text" placeholder="Pesquisar um pokemon..." (input)="pokeFilter()" [(ngModel)]="filter"/>
 </div>
 
 <ul>

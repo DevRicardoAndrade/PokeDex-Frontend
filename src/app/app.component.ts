@@ -9,19 +9,24 @@ import { PokemonService } from './services/pokemon.service';
 export class AppComponent implements OnInit{
   title = 'poke-api-angular';
   pokemons: any = [] 
-  pokemonsFilter: any =[]
+  pokemonsBase: any =[]
   pokemonsDetail: any = []
   showDetailPokemon: boolean = false
   selectedPokemon: any ={}
+  filter: string = ''
 
   constructor(private pokemonService: PokemonService){}
 
   ngOnInit(): void {
       this.getPokemons()
+      this.pokemonsBase = this.pokemonsDetail
   }
 
   pokeFilter(){
-
+      if(this.filter === ''){
+        this.pokemonsDetail = this.pokemonsBase
+      }
+        this.pokemonsDetail = this.pokemonsBase.filter((p:any) => p.name.includes(this.filter))
   }
 
   mostrarDetalhes(pokemon:any){
