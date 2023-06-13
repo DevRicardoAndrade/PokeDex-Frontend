@@ -14,6 +14,7 @@ export class AppComponent implements OnInit{
   showDetailPokemon: boolean = false
   selectedPokemon: any ={}
   filter: string = ''
+  stopViewPokemon: number = 14
 
   constructor(private pokemonService: PokemonService){}
 
