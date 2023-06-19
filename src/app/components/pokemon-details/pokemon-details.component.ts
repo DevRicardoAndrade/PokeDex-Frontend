@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { IPokemon } from 'src/app/interfaces/IPokemon';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -6,8 +7,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./pokemon-details.component.css']
 })
 export class PokemonDetailsComponent {
-  @Input() pokemon: any ={}
+  @Input() pokemon: IPokemon = {
+    name : '',
+    url: ''
+  };
 
   @Output() onClose: EventEmitter<any> = new EventEmitter()
 
+  /**
+   *
+   */
 }

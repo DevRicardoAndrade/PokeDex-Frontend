@@ -1,0 +1,22 @@
+<nav class="nav-bar" *ngIf="_route !== '/login'">
+    <ul class="nav-body">
+        <li>
+            <a [routerLink]="'/'" >
+                <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="PokeApi" width="80"/>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png" alt="Angular" width="20">
+            </a>
+        </li>
+        <li class="nav-item" *ngFor="let route of routes" >
+            <a class="nav-link" [routerLink]="route.path" >{{route.label}}</a>
+        </li>
+        <li class="nav-item" *ngIf="!_auth.isAuthenticated()"  >
+            <a class="nav-link" routerLink="/login" >Login</a>
+        </li>
+        <li class="nav-item" *ngIf="_auth.isAuthenticated()" >
+            <a class="nav-link"  (click)="logoutHandler()">Logout</a>
+        </li>
+        <li class="nav-item" *ngIf="_auth.isAuthenticated()"  >
+            <a class="nav-link" routerLink="/me" >My account</a>
+        </li>
+    </ul>
+</nav>

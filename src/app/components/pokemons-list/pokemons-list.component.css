@@ -1,5 +1,5 @@
 
-ul{
+.list-pokemons{
     margin: 0;
     padding: 0;
     left: 0;
@@ -15,7 +15,7 @@ ul{
     justify-content: center;
 }
 
-li{
+.item-pokemon{
     display: flex;
     flex-direction: column;
     width: 180px;
@@ -29,7 +29,7 @@ li{
 
 }
 
-li:hover{
+.item-pokemon:hover{
     transition: .3s;
     transform: scale(105%);
     cursor: pointer;
@@ -50,12 +50,23 @@ li:hover{
     color: white;
     margin-bottom: 40px;
 }
-.quantidade{
+.quantity{
     font-weight: bold;
 }
-.pesquisar{
+.find{
     width: 250px;
     padding: 0, 15px;
     height: 24px;
     border-radius: 10px;
+}
+.favorite{
+    font-size: 20px;
+}
+.favorite:hover{
+    transform: scale(170%);
+    color: white;
+    cursor: pointer;
+}
+.link-pokemon:hover{
+    text-decoration: underline;
 }
