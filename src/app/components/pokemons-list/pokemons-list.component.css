@@ -54,10 +54,22 @@
     font-weight: bold;
 }
 .find{
+    color: white;
+    background-color: transparent;
     width: 250px;
-    padding: 0, 15px;
+    margin-top: 15px;
+    padding:5px;
     height: 24px;
-    border-radius: 10px;
+    border-radius: 5px;
+    outline: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.6);
+    
+}
+.find:focus{
+    background-color: rgba(255,255,255,0.1);
+}
+.find::placeholder{
+    color: rgba(255,255,255,0.6);
 }
 .favorite{
     font-size: 20px;

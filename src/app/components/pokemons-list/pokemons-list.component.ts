@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IPokemon } from 'src/app/interfaces/IPokemon';
+import { IPokemonFavorited } from 'src/app/interfaces/IPokemonFavorited';
 import { PokemonService } from 'src/app/services/pokemon/pokemon.service';
 
 @Component({
@@ -15,12 +16,14 @@ export class PokemonsListComponent {
   filter: string = '';
   starFill : string = '&#11088;'
   star: string = '&#9733;'
+  favoritedPokemons: IPokemonFavorited[] = []
 
   constructor(private pokemonService: PokemonService, private router:Router){}
 
   ngOnInit(): void {
-      this.getPokemons()
-      this.pokemonsBase = this.pokemons
+      this.getPokemons();
+      this.pokemonsBase = this.pokemons;
+      this.getFavoritesPokemons();
   }
 
   pokeFilter(){
@@ -35,14 +38,31 @@ export class PokemonsListComponent {
       pokemons =>{
          const result = (Object(pokemons).results);
          result.map((p:IPokemon) => this.pokemonService.getByUrl(p.url)
-         .subscribe(pokemon => this.pokemons.push(pokemon))) ;
+         .subscribe(pokemon =>{
+          pokemon.url = p.url
+          this.pokemons.push(pokemon)
+         }
+          )) ;
       }
     );
   }
   favoritePokemon(pokemon: IPokemon):void{
-    console.log(pokemon)
+    if(this.favoritedPokemons.filter(p => p.idPokemon === pokemon.id ).length > 0){
+      //TODO: Unfavorite Pokemon
+    }
+    this.pokemonService.favorite(pokemon).subscribe(p => {
+      this.favoritedPokemons.push(p);
+    })
   }
   pokemonDetailsHandler(pokemon: IPokemon):void{
     this.router.navigate(['/pokemon', pokemon.name], {state:{pokemon}})
+  }
+  getFavoritesPokemons():void{
+    this.pokemonService.getFavorites().subscribe(ap =>{
+      this.favoritedPokemons = ap
+    })
+  }
+  handlePokemon(pokemon: IPokemon){
+    return this.favoritedPokemons.filter(p => p.idPokemon === pokemon.id ).length > 0  ? this.starFill : this.star;
   }
 }

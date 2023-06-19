@@ -6,7 +6,7 @@
 </div>
 <ul class="list-pokemons">
     <li class="item-pokemon" *ngFor="let pokemon of pokemons" >
-        <p class="favorite" [innerHTML]="pokemon.id === 1 ? starFill : star" (click)="favoritePokemon(pokemon)"></p>
+        <p class="favorite" [innerHTML]="handlePokemon(pokemon)" (click)="favoritePokemon(pokemon)"></p>
         <img [src]="pokemon.sprites?.front_default"/>
         <h2 class="link-pokemon" (click)="pokemonDetailsHandler(pokemon)">{{pokemon.name}}</h2>
     </li>

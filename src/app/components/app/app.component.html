@@ -1,2 +1,36 @@
 <app-nav-bar></app-nav-bar>
-<router-outlet></router-outlet>
+
+<router-outlet>   
+    <div *ngIf="_route == '/'" class="content">
+        <h1 
+        [style.color]="'white'"
+        [style.textAlign]="'center'">
+            PokeApi create with Angular and .NET (C#)
+        </h1>
+        <p
+        [style.color]="'white'"
+        [style.textAlign]="'center'">
+            This app was created to apply my knowledge in angular with .NET (C#)
+         </p>
+         <div>
+            <a href="https://github.com/DevRicardoAndrade/poke-api-angular">
+                <img src="https://img.shields.io/badge/angular%20-%23DD0031.svg?&style=for-the-badge&logo=angular&logoColor=white" alt="angular"/>
+             </a>
+             <a href="https://github.com/DevRicardoAndrade/poke-api.net">
+                <img src="https://img.shields.io/badge/c%23%20-%23239120.svg?&style=for-the-badge&logo=c-sharp&logoColor=white" alt="C#"/>
+             </a>   
+             <a href="https://github.com/DevRicardoAndrade/poke-api.net">
+                <img src="https://img.shields.io/badge/dotnet-net%23239120.svg?color=5C2D91&style=for-the-badge&logo=.net&logoColor=white" alt="dotnet"/>
+             </a>
+            
+         </div>
+         <h3 [style.color]="'white'"
+         [style.textAlign]="'center'">My social medias</h3>
+         <a href="https://github.com/DevRicardoAndrade">
+         <img src="https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github" alt="github" height="28.5"/>
+        </a>
+        <a href="https://www.linkedin.com/in/ricardo-andrade-a48761178/">
+            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin"/>
+        </a>
+    </div> 
+</router-outlet>

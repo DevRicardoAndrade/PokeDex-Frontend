@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { NavigationEnd, Router } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,12 @@ import { Component } from "@angular/core";
 export class AppComponent{
   title ='Poke Api Angular'
 
+  _route: string  = '';
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) =>{
+      if(event instanceof NavigationEnd){
+        this._route = event.url;
+      }
+    })
+  }
 }

@@ -10,7 +10,7 @@ import { IUser } from '../../interfaces/IUser';
 export class AuthService {
   private _user : IUser | null = null;
   private authenticated: boolean = false;
-  private authToken: string | null = null;
+  private authToken: string = '';
 
   constructor( private user: UserService, private results:ResultsService) { this.getStatus() }
 
@@ -40,12 +40,12 @@ export class AuthService {
   isAuthenticated():boolean{
     return this.authenticated;
   }
-  getAuthToken(): string | null{
+  getAuthToken(): string {
     return this.authToken;
   }
   logout():void{
     this.authenticated = false;
-    this.authToken = null;
+    this.authToken = '';
     this.user.setTokenCookie('');
   }
   account(){
