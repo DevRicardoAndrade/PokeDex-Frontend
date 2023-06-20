@@ -1,22 +1,12 @@
 .modal-content{
-    position: absolute;
-    left: 0;
-    border: 1px solid white;
-    border-radius: 35px;
+    border: 1px solid rgba(0, 0, 0, 0.301);
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 15px;
-    align-items: center;
-    width: 700px;
-    height: 800px;
+    width: 65%;
     text-align: center;
-    background-color: rgba(255,255,255, 0.1); /* Black w/opacity/see-through */
-    color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    background-color: rgb(255, 255, 255); /* Black w/opacity/see-through */
+    color: black;
     text-align: center;
     -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
@@ -26,45 +16,44 @@
 .actions{
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-items: flex-start;
     width: 100%;
     margin: 0;
-    height: 95px;
+    height: 65px;
 }
 .back{
     background-color: transparent;
     text-decoration: none;
     color: rgb(32, 0, 119);
+    border-radius: 45px;
     font-size: 40px;
     transition: .5s;
-    margin-left: 50px;
-    margin-top: 50px;
+    font-weight: bold;
 }
 .back:hover{
     transform: scale(110%);
+    background-color: rgba(0, 0, 0, 0.404);
 }
 
-.close:hover{
-    color: rgba(255,255,255,0.7);
-    cursor: pointer;
-    transform: scale(105%);
-    
-}
 .content{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 100%;
     gap: 15px;
 }
 .title{
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
 }
 .title span{
-    font-size: 15px;
+    font-size: 20px;
+}
+.img{
+    position: relative;
+    width: 35%;
 }

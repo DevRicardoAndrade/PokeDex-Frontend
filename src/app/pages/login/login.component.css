@@ -5,11 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.2);
 }
 .login-panel{
     border: 1px solid rgba(80,80,80,0.5);
-    background-color: aliceblue;
+    background-color: rgb(230, 230, 230);
     border-radius: 15px;
     padding: 0 25px 0 25px;
     width: 50%;

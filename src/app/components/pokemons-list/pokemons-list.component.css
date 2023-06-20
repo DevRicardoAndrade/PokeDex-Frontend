@@ -1,4 +1,3 @@
-
 .list-pokemons{
     margin: 0;
     padding: 0;
@@ -6,7 +5,7 @@
     top: 0;
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 15px;
     width: 100%;
     height: 100vh;
     flex-wrap: wrap;
@@ -18,26 +17,32 @@
 .item-pokemon{
     display: flex;
     flex-direction: column;
-    width: 180px;
-    height: 250px;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 250px;
+    height: 300px;
     border: 1px solid rgba(0,0,0,0.2);
     text-align: center;
-    border-radius: 15px;
+    border-radius: 10px;
     -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
 
 }
-
+.item-pokemon img{
+    width: 75%;
+}
 .item-pokemon:hover{
     transition: .3s;
     transform: scale(105%);
     cursor: pointer;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(0,0,0,0.1);
     color: white;
 }
 
 .header{
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -46,30 +51,30 @@
     margin:0;
     left: 0;
     top: 0;
-    height: 35px;
-    color: white;
+    height: 65px;
+    color: black;
     margin-bottom: 40px;
 }
 .quantity{
     font-weight: bold;
 }
 .find{
-    color: white;
+    color: black;
     background-color: transparent;
     width: 250px;
     margin-top: 15px;
     padding:5px;
     height: 24px;
     border-radius: 5px;
-    outline: rgba(255,255,255,0.6);
-    border: 1px solid rgba(255,255,255,0.6);
+    outline: rgba(253, 152, 0, 0.6);
+    border: 1px solid rgba(0,0,0,0.6);
     
 }
 .find:focus{
     background-color: rgba(255,255,255,0.1);
 }
 .find::placeholder{
-    color: rgba(255,255,255,0.6);
+    color: rgba(0,0,0,0.6);
 }
 .favorite{
     font-size: 20px;
@@ -81,4 +86,38 @@
 }
 .link-pokemon:hover{
     text-decoration: underline;
+}
+.requesting-bg{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+.requesting{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.requesting::after{
+    content: " ";
+    display: block;
+    width: 75px;
+    height: 75px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #1d0b5f;
+    border-color: #1d0b5f transparent #2a35cf transparent;
+    animation: requesting 1.2s linear infinite;
+}
+@keyframes requesting {
+    0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
 }

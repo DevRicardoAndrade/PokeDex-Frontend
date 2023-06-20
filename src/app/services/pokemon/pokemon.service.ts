@@ -13,8 +13,8 @@ export class PokemonService {
   private url_base: string = 'https://pokeapi.co/api/v2/';
   constructor(private http: HttpClient, private auth: AuthService) { }
 
-  getAll(): Observable<Array<IPokemon>>{
-    return this.http.get<Array<IPokemon>>(this.url_base + 'pokemon?limit=10000&offset=0');
+  getAll(num:number): Observable<Array<IPokemon>>{
+    return this.http.get<Array<IPokemon>>(this.url_base + 'pokemon?limit=' + (num).toString() + '&offset=0');
   }
   getByUrl(url:string):Observable<IPokemon>{
     return this.http.get<IPokemon>(url)

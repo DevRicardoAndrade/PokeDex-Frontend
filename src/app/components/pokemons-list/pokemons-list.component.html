@@ -1,7 +1,12 @@
+<div class="requesting-bg" *ngIf="loading">
+    <div class="requesting"></div>
+</div>
+
 <div class="header">
     <span class="quantity">
        Number of pokemons listed: {{pokemons.length}}
     </span>
+    <span class="quantity">Number of Pokemons <input class="find" type="number" (blur)="handleblur()"  [(ngModel)]="numberOfPokemons"/></span>
     <input class="find" type="text" placeholder="Find one pokemon..." (input)="pokeFilter()" [(ngModel)]="filter"/>
 </div>
 <ul class="list-pokemons">
@@ -11,4 +16,3 @@
         <h2 class="link-pokemon" (click)="pokemonDetailsHandler(pokemon)">{{pokemon.name}}</h2>
     </li>
 </ul>
-

@@ -4,10 +4,10 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.2);
 }
 .register-panel{
-    background-color: aliceblue;
+    background-color: rgb(230, 230, 230);
     padding: 25px;
     border-radius: 15px;
     display: flex;

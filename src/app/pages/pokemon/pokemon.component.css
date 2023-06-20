@@ -1,0 +1,8 @@
+app-pokemon-details{
+    display: flex;
+    width: 100%;
+    height: 93.5vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
