@@ -1,10 +1,17 @@
-<div class="login-bg">
-    <form #f="ngForm" class="login-panel" (ngSubmit)="submitHandler(f)">
+<div class="register-bg">
+    <form #f="ngForm" class="register-panel" (ngSubmit)="submitHandler(f)">
         <div>
             <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="PokeApi" width="150"/>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png" alt="Angular" width="90">
         </div>
-
+        <div class="form-group">
+            <label class="form-label">Name</label>
+            <input ngModel #Name="ngModel" type="text" class="form-control" placeholder="Enter your Name.." id="Name" name="Name">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Email</label>
+            <input ngModel #Email="ngModel" type="email" class="form-control" placeholder="Enter your Email.." id="Email" name="Email">
+        </div>
         <div class="form-group">
             <label class="form-label">UserName</label>
             <input ngModel #userName="ngModel" type="text" class="form-control" placeholder="Enter your UserName.." id="userName" name="userName">
@@ -21,11 +28,7 @@
         </div>
         <div class="form-actions">
             <span *ngIf="!processing" class="back"><a routerLink="/" >Back</a></span>
-            <button class="btn-submit" type="submit" [disabled]="processing">Login</button>
-        </div>
-        <div class="form-actions">
-            <span></span>
-            <span *ngIf="!processing" class="register"><a routerLink="/register">Register now</a></span>
+            <button class="btn-submit" type="submit" [disabled]="processing">Register</button>
         </div>
     </form>
 </div>

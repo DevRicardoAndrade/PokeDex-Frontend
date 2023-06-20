@@ -4,13 +4,14 @@ import { IUserLogin } from '../../interfaces/IUserLogin';
 import { Observable } from 'rxjs';
 import { IToken } from '../../interfaces/IToken';
 import { IUser } from '../../interfaces/IUser';
+import { ResultsService } from '../results/results.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private url_base: string = 'https://localhost:7021/api/user';
-  constructor(private htpp : HttpClient) { }
+  constructor(private htpp : HttpClient, private results:ResultsService) { }
 
   login(user:IUserLogin):Observable<IToken>{
       return this.htpp.post<IToken>(this.url_base + '/login', user);
@@ -38,5 +39,20 @@ export class UserService {
     }
     else
       return null;
+  }
+  register(user: IUser): Promise<string[]> {
+    user.rules = [{name: 'USER'}];
+    return new Promise<string[]>((resolve, reject) => {
+      let errors: Array<string> = [];
+      this.htpp.post(this.url_base + '/register', user).subscribe(
+          result => {
+            resolve([]);
+          },
+          error => {
+            errors = this.results.getError(error);
+            reject(errors)
+          }
+        );
+    });
   }
 }

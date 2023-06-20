@@ -33,6 +33,7 @@
     height: 95px;
 }
 .back{
+    background-color: transparent;
     text-decoration: none;
     color: rgb(32, 0, 119);
     font-size: 40px;
@@ -40,6 +41,10 @@
     margin-left: 50px;
     margin-top: 50px;
 }
+.back:hover{
+    transform: scale(110%);
+}
+
 .close:hover{
     color: rgba(255,255,255,0.7);
     cursor: pointer;

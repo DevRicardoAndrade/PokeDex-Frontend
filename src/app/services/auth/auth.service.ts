@@ -15,7 +15,7 @@ export class AuthService {
   constructor( private user: UserService, private results:ResultsService) { this.getStatus() }
 
   auth(user: IUserLogin): Promise<string[]> {
-    return new Promise<string[]>((resolve) => {
+    return new Promise<string[]>((resolve, reject) => {
       let errors: Array<string> = [];
       this.user.login(user)
         .subscribe(
@@ -25,13 +25,11 @@ export class AuthService {
               this.authenticated = true;
               this.authToken = result.token;
             }
+            resolve([]);
           },
           error => {
             errors = this.results.getError(error);
-          },
-          () => {
-            
-            resolve(errors);
+            reject(errors);
           }
         );
     });

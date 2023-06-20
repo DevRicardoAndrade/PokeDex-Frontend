@@ -5,6 +5,7 @@ import { PokemonsComponent } from '../pages/pokemons/pokemons.component';
 import { MeComponent } from '../pages/me/me.component';
 import { AuthGuard } from '../services/auth/authGaurd/auth-guard';
 import { PokemonComponent } from '../pages/pokemon/pokemon.component';
+import { RegisterComponent } from '../pages/register/register.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
     path: 'pokemon/:name',
     component: PokemonComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   }
 ];
 

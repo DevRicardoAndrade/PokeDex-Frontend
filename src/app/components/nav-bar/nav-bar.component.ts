@@ -19,7 +19,7 @@ export class NavBarComponent implements OnInit{
   ngOnInit(): void {
 
       getRoutes().map(value =>{
-        if(value.path !== 'login' && value.path !== 'me' && value.path !==  'pokemon/:name' ){
+        if(value.path !== 'login' && value.path !== 'me' && value.path !==  'pokemon/:name' && value.path !==  'register' ){
           this.routes.push({
             path : value.path,
             label : value.component?.name.replace('Component', '')

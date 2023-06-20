@@ -12,6 +12,7 @@ import { PokemonsComponent } from './pages/pokemons/pokemons.component';
 import { PokemonComponent } from './pages/pokemon/pokemon.component';
 import { MeComponent } from './pages/me/me.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     PokemonsComponent,
     PokemonComponent,
     MeComponent,
-    NavBarComponent
+    NavBarComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

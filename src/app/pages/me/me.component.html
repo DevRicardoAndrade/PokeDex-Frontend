@@ -3,19 +3,25 @@
     <div class="user-content">
         <div class="control-group">
             <label class="title">Name:</label>
-            <input class="info" type="text" readonly/>
+            <input class="info" type="text" readonly [value]="me.name"/>
         </div>
         <div class="control-group">
             <label class="title">Email:</label>
-            <input class="info" type="text" readonly/>
+            <input class="info" type="text" readonly [value]="me.email"/>
         </div>
         <div class="control-group">
             <label class="title">UserName:</label>
-            <input class="info" type="text" readonly/>
+            <input class="info" type="text" readonly [value]="me.userName"/>
         </div>
     </div>
+    <h2>Favorited Pokemons</h2>
     <div class="favorited-pokemons">
-        <h2>Favorited Pokemons</h2>
-        
+        <div class="card-pokemon" *ngFor="let pokemon of pokemonsFavoriteds">
+            <img class="img" [src]="pokemon.sprites?.other?.dream_world?.front_default">
+            <h2>Name: {{pokemon.name}}</h2>
+            <label class="title">Types: <span *ngFor="let type of pokemon.types" > | {{type.type.name}} | </span></label>
+            <label class="title">Abilities: <span *ngFor="let ability of pokemon.abilities" > | {{ability.ability.name}} | </span></label>
+        </div>
+
     </div>
 </div>

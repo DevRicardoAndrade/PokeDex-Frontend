@@ -26,13 +26,14 @@ export class LoginComponent implements OnInit {
     this.auth.auth(e.form.value)
     .then((value) =>{
       this.errors = value
+    
+    })
+    .catch(e => this.errors = e)
+    .finally(() =>{
+      this.processing = false;
       if(this.auth.isAuthenticated()){
         this.router.navigate(['/'])
       }
-    })
-    .finally(() =>{
-      this.processing = false;
-
     })
   }
 }

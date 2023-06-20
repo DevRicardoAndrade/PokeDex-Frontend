@@ -27,10 +27,11 @@ export class PokemonsListComponent {
   }
 
   pokeFilter(){
+    const pokeFilter = this.pokemonsBase;
       if(this.filter === ''){
         this.pokemons = this.pokemonsBase
       }
-        this.pokemons = this.pokemonsBase.filter((p: IPokemon) => p.name.includes(this.filter))
+        this.pokemons = pokeFilter.filter((p: IPokemon) => p.name.includes(this.filter))
   }
 
   getPokemons(){
@@ -48,11 +49,19 @@ export class PokemonsListComponent {
   }
   favoritePokemon(pokemon: IPokemon):void{
     if(this.favoritedPokemons.filter(p => p.idPokemon === pokemon.id ).length > 0){
-      //TODO: Unfavorite Pokemon
+      this.pokemonService.unfavorite(pokemon).subscribe(p =>{
+        const pokeFav = this.favoritedPokemons.findIndex(pf => pf.idPokemon == pokemon.id)
+        this.favoritedPokemons.splice(pokeFav, 1);
+      })
+      
     }
-    this.pokemonService.favorite(pokemon).subscribe(p => {
-      this.favoritedPokemons.push(p);
-    })
+
+    else{
+      this.pokemonService.favorite(pokemon).subscribe(p => {
+        this.favoritedPokemons.push(p);
+      })
+    }
+  
   }
   pokemonDetailsHandler(pokemon: IPokemon):void{
     this.router.navigate(['/pokemon', pokemon.name], {state:{pokemon}})

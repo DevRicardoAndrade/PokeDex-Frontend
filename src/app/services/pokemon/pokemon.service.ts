@@ -14,13 +14,13 @@ export class PokemonService {
   constructor(private http: HttpClient, private auth: AuthService) { }
 
   getAll(): Observable<Array<IPokemon>>{
-    return this.http.get<Array<IPokemon>>(this.url_base + 'pokemon?limit=100000&offset=0');
+    return this.http.get<Array<IPokemon>>(this.url_base + 'pokemon?limit=10000&offset=0');
   }
   getByUrl(url:string):Observable<IPokemon>{
     return this.http.get<IPokemon>(url)
   }
   favorite(pokemon: IPokemon):Observable<IPokemonFavorited>{
-    return this.http.post<IPokemonFavorited>('https://localhost:7021/favorite', {
+    return this.http.post<IPokemonFavorited>('https://localhost:7021/api/pokemon/favorite', {
       idPokemon: pokemon.id,
       name: pokemon.name,
       url: pokemon.url
@@ -29,7 +29,17 @@ export class PokemonService {
     })
   }
   getFavorites():Observable<IPokemonFavorited[]>{
-    return this.http.get<IPokemonFavorited[]>('https://localhost:7021/favorite', {
+    return this.http.get<IPokemonFavorited[]>('https://localhost:7021/api/pokemon/favorite', {
+      headers: new HttpHeaders().set('Authorization', this.auth.getAuthToken())
+    })
+    
+  }
+  unfavorite(pokemon: IPokemon):Observable<IPokemonFavorited>{
+    return this.http.post<IPokemonFavorited>('https://localhost:7021/api/pokemon/unfavorite', {
+      idPokemon: pokemon.id,
+      name: pokemon.name,
+      url: pokemon.url
+    },{
       headers: new HttpHeaders().set('Authorization', this.auth.getAuthToken())
     })
   }

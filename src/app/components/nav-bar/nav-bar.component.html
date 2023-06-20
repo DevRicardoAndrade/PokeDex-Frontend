@@ -1,4 +1,4 @@
-<nav class="nav-bar" *ngIf="_route !== '/login'">
+<nav class="nav-bar" *ngIf="_route !== '/login' && _route !== '/register'">
     <ul class="nav-body">
         <li>
             <a [routerLink]="'/'" >
@@ -17,6 +17,9 @@
         </li>
         <li class="nav-item" *ngIf="_auth.isAuthenticated()" >
             <a class="nav-link"  (click)="logoutHandler()">Logout</a>
+        </li>
+        <li class="nav-item" *ngIf="!_auth.isAuthenticated()" >
+            <a class="nav-link" routerLink="/register" >Register</a>
         </li>
     </ul>
 </nav>
