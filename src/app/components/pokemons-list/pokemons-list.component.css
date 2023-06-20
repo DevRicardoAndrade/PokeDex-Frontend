@@ -42,21 +42,27 @@
 }
 
 .header{
+    margin: 0;
+    margin-top: 55px;
+    margin-bottom: 35px;
     position: relative;
     width: 100%;
     display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin:0;
     left: 0;
     top: 0;
-    height: 65px;
     color: black;
-    margin-bottom: 40px;
+}
+.header span{
+    display: block;
 }
 .quantity{
     font-weight: bold;
+    text-align: center;
 }
 .find{
     color: black;

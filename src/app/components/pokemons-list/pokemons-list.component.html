@@ -6,7 +6,7 @@
     <span class="quantity">
        Number of pokemons listed: {{pokemons.length}}
     </span>
-    <span class="quantity">Number of Pokemons <input class="find" type="number" (blur)="handleblur()"  [(ngModel)]="numberOfPokemons"/></span>
+    <div class="quantity">Number of Pokemons <input class="find" type="number" (blur)="handleblur()"  [(ngModel)]="numberOfPokemons"/></div>
     <input class="find" type="text" placeholder="Find one pokemon..." (input)="pokeFilter()" [(ngModel)]="filter"/>
 </div>
 <ul class="list-pokemons">
